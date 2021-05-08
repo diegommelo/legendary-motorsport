@@ -8,6 +8,21 @@
   </div>
 </template>
 
-<style>
+<script>
 
+export default{
+  name:'App',
+  created() {
+    this.$store.dispatch('getAllData');
+  }
+}
+</script>
+
+
+<style>
+#nav {
+  text-align: center;
+  padding:20px;
+}
 </style>
+

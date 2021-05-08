@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     data: {},
     loaded: false,
+    carDetails: null,
   },
   mutations: {
     SET_DATA(state, data) {
@@ -16,13 +17,15 @@ export default new Vuex.Store({
     SET_LOADED(state, status) {
       state.loaded = status;
     },
+    SET_CARDETAILS(state, data) {
+      state.carDetails = data;
+    },
   },
   actions: {
     getAllData({ commit }) {
       axios
         .get('https://api.npoint.io/00261b488b3d021ec333')
         .then((response) => {
-          console.log(response.data);
           const dataFiltered = Object.values(response.data).filter((item) => {
             return item.attr.ct12.value[0] === 'legendary-motorsport';
           });
@@ -33,11 +36,24 @@ export default new Vuex.Store({
           console.error(`Deu ruim: ${err}`);
         });
     },
+    actionCarDetails({ state, commit }, id) {
+      if (state.loaded) {
+        const response = state.data.filter((car) => {
+          return car.id === id;
+        });
+        commit('SET_CARDETAILS', response);
+      } else {
+        console.error('Erro ao carregar detalhes do carro');
+      }
+    },
   },
   modules: {},
   getters: {
     getData: (state) => {
       return state.data;
+    },
+    getCarDetails: (state) => {
+      return state.carDetails;
     },
   },
 });
