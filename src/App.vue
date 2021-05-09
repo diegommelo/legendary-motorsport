@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
+    </div> -->
+    <div class="header">
+      <img src="./assets/logo.png" class="logo" />
+    </div>    
     <router-view/>
   </div>
 </template>

@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@media only screen and (min-width: 640px) {
+  .header {
+    height: 350px !important;
+    margin-bottom: -3rem;
+  }
+  .logo {
+    width: 25rem !important;
+    margin-left: 10rem;
+    padding-top: 4rem;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .logo {
+    width: 15rem;
+    margin: 0 auto;
+  }
+  .header {
+    margin-bottom: 1rem;
+  }
+}
 body {
   background-color: #560e0e;
   background-image: linear-gradient(
@@ -22,5 +43,12 @@ body {
   background-position: 0 0, 5px 5px;
 }
 .bg-list-cars {
-  background-color: rgb(34, 1, 1, 0.85);
+  background-color: rgb(34, 1, 1, 0.99);
+}
+.header {
+  background-image: url('./assets/header.png');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  border-bottom: 4px solid rgba(220, 38, 38);
 }
