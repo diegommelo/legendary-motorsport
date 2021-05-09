@@ -1,7 +1,7 @@
 <template>
   <div class="text-white">
     <div id="car-detail-wrapper" class="mx-auto bg-list-cars p-4 border-2 border-red-700 sm:w-7/12 w-10/12">
-      <div class="flex flex-row justify-between mx-auto  sm:text-2xl text-base">
+      <div class="flex flex-row justify-between mx-auto sm:text-2xl text-base">
         <div class="w-20 mt-2">
           <slot name="manufacturer-logo"></slot>
         </div>
@@ -17,10 +17,13 @@
           <p>
             <slot name="car-description"></slot>
           </p>
-          <slot name="car-colors"></slot>
+          <p class="mt-6 mb-4 text-xl uppercase">Colors available</p>
+          <div class="flex flex-row flex-wrap mt-2">
+            <slot name="car-colors"></slot>
+          </div>
           <slot name="car-stats"></slot>
         </div>
-        <div class="col-span-4 p-2 ml-2">
+        <div class="col-span-4 p-2 sm:ml-2">
           <slot name="car-photos">sadfsdf</slot>
         </div>
       </div>
