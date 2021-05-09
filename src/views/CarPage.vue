@@ -7,6 +7,12 @@
       <template v-slot:manufacturer-logo>
           <img :src="`https://gtabase.com/images/gta-5/manufacturers/${getCarDetails[0].attr.ct2.value[0]}.png`" class="w-10 sm:w-20" />
       </template>
+      <template v-slot:car-description>
+        {{getCarDetails[0].description}}
+      </template>
+      <template v-slot:car-photos>
+        <img :src="`https://gtabase.com/${getCarDetails[0].thumbnail}`" :alt="`${getCarDetails[0].name}`" />
+      </template>
     </CarDetail>
   </div>
 </template>
