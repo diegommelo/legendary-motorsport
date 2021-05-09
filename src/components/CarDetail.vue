@@ -12,19 +12,26 @@
           $<slot name="car-price"></slot>
         </div>
       </div>
-      <div class="sm:grid sm:grid-cols-6 sm:text-base mx-auto mt-4 text-sm">
-        <div class="col-span-2 p-2">
+      <div class="sm:grid sm:grid-cols-8 sm:text-base mx-auto mt-4 text-sm">
+        <div class="col-span-3 p-2 sm:mt-6">
           <p>
             <slot name="car-description"></slot>
           </p>
-          <p class="mt-6 mb-4 text-xl uppercase">Colors available</p>
-          <div class="flex flex-row flex-wrap mt-2">
+        </div>
+        <div class="col-span-5 p-2 sm:ml-2">
+          <slot name="car-photos">sadfsdf</slot>
+        </div>
+      </div>
+      <div class="sm:grid sm:grid-cols-4 mt-6">
+        <div class="col-span-2">
+          <p class="mb-4 text-xl uppercase">Colors available</p>
+          <div class="flex flex-row flex-wrap">
             <slot name="car-colors"></slot>
           </div>
-          <slot name="car-stats"></slot>
         </div>
-        <div class="col-span-4 p-2 sm:ml-2">
-          <slot name="car-photos">sadfsdf</slot>
+        <div class="col-span-2">
+          <p class="text-xl uppercase mb-4">Technical Specs</p>
+          <slot name="car-stats"></slot>
         </div>
       </div>
     </div>
