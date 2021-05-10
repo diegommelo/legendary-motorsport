@@ -52,6 +52,12 @@ body {
   background-repeat: no-repeat;
   border-bottom: 4px solid rgba(220, 38, 38);
 }
+.footer {
+  background-color: #000;
+  border-top: 4px solid rgba(220, 38, 38);
+  height: 5rem;
+  margin-top: 20px;
+}
 a:link {
   cursor: url('assets/cursor.png') 9 1, auto !important;
 }

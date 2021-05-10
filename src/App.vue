@@ -10,6 +10,9 @@
       </router-link>
     </div>    
     <router-view/>
+    <div class="footer">
+      
+    </div>
   </div>
 </template>
 
