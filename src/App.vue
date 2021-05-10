@@ -5,7 +5,9 @@
       <router-link to="/about">About</router-link>
     </div> -->
     <div class="header">
-      <img src="./assets/logo.png" class="logo" />
+      <router-link to="/">
+        <img src="./assets/logo.png" class="logo" />
+      </router-link>
     </div>    
     <router-view/>
   </div>

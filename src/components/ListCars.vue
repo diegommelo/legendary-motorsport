@@ -31,9 +31,6 @@ import Card from './Card.vue';
 export default {
   components: { Card },
   name: 'ListCars',
-  props: {
-    
-  },
   computed: {
     ...mapGetters([
       'getData'

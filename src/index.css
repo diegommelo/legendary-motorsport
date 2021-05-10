@@ -43,7 +43,7 @@ body {
   background-position: 0 0, 5px 5px;
 }
 .bg-list-cars {
-  background-color: rgb(34, 1, 1, 0.99);
+  background-color: rgb(34, 1, 1, 0.98);
 }
 .header {
   background-image: url('./assets/header.png');
@@ -51,4 +51,7 @@ body {
   background-position: bottom;
   background-repeat: no-repeat;
   border-bottom: 4px solid rgba(220, 38, 38);
+}
+a:link {
+  cursor: url('assets/cursor.png') 9 1, auto !important;
 }
