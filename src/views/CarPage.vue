@@ -23,6 +23,12 @@
         <span href="#" class="inline-block rounded-full bg-yellow-700 border-4 border-yellow-700 w-10 h-10 m-2 text-xs font-bold"></span>
         <span href="#" class="inline-block rounded-full bg-red-400 border-4 border-red-400 w-10 h-10 m-2 text-xs font-bold"></span>
       </template>
+      <template v-slot:car-stats>
+          <StatsBar stats="speed" :value="getCarDetails[0].attr.ct6.formatted_value" />
+          <StatsBar stats="acceleration" :value="getCarDetails[0].attr.ct7.formatted_value" />
+          <StatsBar stats="braking" :value="getCarDetails[0].attr.ct8.formatted_value" />
+          <StatsBar stats="handling" :value="getCarDetails[0].attr.ct9.formatted_value" />
+      </template>
     </CarDetail>
   </div>
 </template>
@@ -30,8 +36,10 @@
 <script>
 import { mapActions, mapGetters, mapState } from 'vuex'
 import CarDetail from '../components/CarDetail.vue'
+import StatsBar from '../components/StatsBar.vue'
+
 export default {
-  components: { CarDetail },
+  components: { CarDetail, StatsBar },
   name:"CarPage",
   data() {
     return {
@@ -56,7 +64,7 @@ export default {
     if(this.loaded){
       this.actionCarDetails(this.carId)  
     } else {
-      console.log('ainda não carregou o bagulho e agora')
+      console.log('Erro ao carregar dados do veículo')
     }
   },
   watch: {
@@ -71,6 +79,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

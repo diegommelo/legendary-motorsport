@@ -29,7 +29,7 @@
             <slot name="car-colors"></slot>
           </div>
         </div>
-        <div class="col-span-2">
+        <div class="col-span-2 space-y-2">
           <p class="text-xl uppercase mb-4">Technical Specs</p>
           <slot name="car-stats"></slot>
         </div>
