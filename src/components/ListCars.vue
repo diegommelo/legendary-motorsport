@@ -1,39 +1,55 @@
 <template>
   <div>
-    <div class="flex flex-wrap sm:w-8/12 w-11/12 mx-auto bg-list-cars border-2 border-red-700">
-      <Card v-for="car in getData" :key="car.id">
-          <template v-slot:car-name>
-            <router-link :to="{name:'CarPage', params: {id:car.id}}">
-              {{car.name}}
-            </router-link>
-          </template>
-          <template v-slot:car-image>
-            <router-link :to="{name:'CarPage', params: {id:car.id}}">
-              <img :src="`https://gtabase.com/${car.thumbnail}`" :alt="car.name" />
-            </router-link>
-          </template>
-          <template v-slot:manufacturer-logo>
-            <img :src="`https://gtabase.com/images/gta-5/manufacturers/${car.attr.ct2.value[0]}.png`" />
-          </template>
-          <template v-slot:car-price>
-            $ {{car.attr.ct13.formatted_value}}
-          </template>
-      </Card>
+    <div class="sm:w-8/12 w-11/12 mx-auto bg-list-cars border-2 border-red-700 text-right">
+      <button @click="orderByPrice" class="bg-gradient-to-b from-red-700 via-red-800 to-red-900 rounded text-white p-2 mr-4 mt-4">
+        Order by price <span class="ml-4" v-if="orderDirection">🠹</span><span class="ml-4" v-else>🠻</span>
+      </button>
+      <div class="flex flex-wrap">
+        <Card v-for="car in getData" :key="car.id">
+            <template v-slot:car-name>
+              <router-link :to="{name:'CarPage', params: {id:car.id}}">
+                {{car.name}}
+              </router-link>
+            </template>
+            <template v-slot:car-image>
+              <router-link :to="{name:'CarPage', params: {id:car.id}}">
+                <img :src="`https://gtabase.com/${car.thumbnail}`" :alt="car.name" />
+              </router-link>
+            </template>
+            <template v-slot:manufacturer-logo>
+              <img :src="`https://gtabase.com/images/gta-5/manufacturers/${car.attr.ct2.value[0]}.png`" />
+            </template>
+            <template v-slot:car-price>
+              $ {{car.attr.ct13.formatted_value}}
+            </template>
+        </Card>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions, mapState } from 'vuex';
 import Card from './Card.vue';
 
 export default {
   components: { Card },
   name: 'ListCars',
+  methods: {
+    orderByPrice: function () {
+      this.orderCarsByPrice(!this.orderDirection)
+    },
+    ...mapActions([
+      'orderCarsByPrice'
+    ])
+  },
   computed: {
     ...mapGetters([
       'getData'
+    ]),
+    ...mapState([
+      'orderDirection'
     ])
   }
 }
