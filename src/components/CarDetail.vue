@@ -19,7 +19,7 @@
           </p>
         </div>
         <div class="col-span-5 p-2 sm:ml-2 shadow">
-          <slot name="car-photos">sadfsdf</slot>
+          <slot name="car-photos"></slot>
         </div>
       </div>
       <div class="sm:grid sm:grid-cols-4 mt-6">

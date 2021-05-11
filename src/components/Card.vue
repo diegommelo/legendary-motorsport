@@ -3,7 +3,7 @@
     <div class="border-2 border-gray-800 shadow-md">
       <div class="card-photo">
         <div class="relative">
-          <div>
+          <div class="car-image">
             <slot name="car-image"></slot>
           </div>
           <div class="md:w-10 md:h-10 w-5 h-5 absolute left-0 top-0 ml-2 mt-2 shadow-md">
@@ -33,6 +33,13 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  @media only screen and (min-width:640px) {
+    .car-image {
+      height: 158px;
+    }
+  }
+  .car-image {
+    min-height: 95px;
+  }
 </style>
