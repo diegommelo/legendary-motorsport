@@ -9,7 +9,7 @@ export default new Vuex.Store({
     data: {},
     loaded: false,
     carDetails: null,
-    orderDirection: true,
+    orderDirection: null,
   },
   mutations: {
     SET_DATA(state, data) {

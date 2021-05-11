@@ -1,6 +1,6 @@
 <template>
   <div class="md:w-6/12 lg:w-4/12 md:p-4 md:text-base w-6/12 p-2 text-sm">
-    <div class="card-wrapper border-2 border-gray-800 shadow-md">
+    <div class="border-2 border-gray-800 shadow-md">
       <div class="card-photo">
         <div class="relative">
           <div>
