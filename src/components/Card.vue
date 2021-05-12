@@ -1,5 +1,5 @@
 <template>
-  <div class="md:w-6/12 lg:w-4/12 md:p-4 md:text-base w-6/12 p-2 text-sm">
+  <div class="md:w-4/12 md:p-3 md:text-base w-6/12 p-2 text-sm">
     <div class="border-2 border-gray-800 shadow-md">
       <div class="card-photo">
         <div class="relative">
@@ -12,13 +12,13 @@
         </div>
       </div>
       <div class="card-footer bg-black flex sm:flex-nowrap flex-wrap sm:justify-between">
-        <div class="w-full lg:max-w-lg">
-          <p class="sm:text-left text-center text-white content-center sm:p-2 p-2 truncate">
+        <div class="car-name flex sm:justify-start justify-center items-center m-2 truncate">
+          <p class="sm:text-left text-white ">
             <slot name="car-name"></slot>
           </p>
         </div>
-        <div class="w-full md:w-6/12 lg:w-5/12">
-          <p class="p1 sm:p-2 sm:text-right text-center text-gray-200 bg-gradient-to-b from-red-700 via-red-800 to-red-900 truncate">
+        <div class="car-price sm:h-10 h-8 p-2 flex items-center justify-center bg-gradient-to-b from-red-700 via-red-800 to-red-900">
+          <p class="sm:text-right text-gray-200 truncate">
             <slot name="car-price"></slot>
           </p>
         </div>
@@ -34,12 +34,16 @@ export default {
 </script>
 
 <style scoped>
-  @media only screen and (min-width:640px) {
-    .car-image {
-      height: 158px;
+  @media only screen and (max-width: 640px) {
+    .car-price {
+      width:100%;
+    }
+    .car-name {
+      width: 100%;
     }
   }
   .car-image {
     min-height: 95px;
   }
+ 
 </style>

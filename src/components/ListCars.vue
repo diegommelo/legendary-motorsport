@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="sm:-mt-12 sm:w-8/12 w-11/12 mx-auto bg-list-cars border-2 border-red-700 text-right">
+    <div class="bg-list-cars border-red-700 text-right">
       <button @click="orderByPrice" class="bg-gradient-to-b from-red-700 via-red-800 to-red-900 rounded text-white p-2 mr-4 mt-4">
         Order by price 
         <span class="ml-4 text-bold" v-if="orderDirection === null"> ⬍</span>
@@ -38,13 +38,14 @@
 
 <script>
 
-import { mapGetters, mapActions, mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import Card from './Card.vue';
 import SkeletonCard from './SkeletonCard.vue';
 
 export default {
   components: { Card, SkeletonCard },
   name: 'ListCars',
+  props: ['getData'],
   methods: {
     orderByPrice: function () {
       this.orderCarsByPrice(!this.orderDirection)
@@ -54,9 +55,6 @@ export default {
     ])
   },
   computed: {
-    ...mapGetters([
-      'getData'
-    ]),
     ...mapState([
       'orderDirection',
       'loaded'

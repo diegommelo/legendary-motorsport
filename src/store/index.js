@@ -10,6 +10,7 @@ export default new Vuex.Store({
     loaded: false,
     carDetails: null,
     orderDirection: null,
+    carsByManufacturer: {},
   },
   mutations: {
     SET_DATA(state, data) {
@@ -24,16 +25,19 @@ export default new Vuex.Store({
     SET_ORDERDIRECTION(state, direction) {
       state.orderDirection = direction;
     },
+    SET_CARSBYMANUFACTURER(state, data) {
+      state.carsByManufacturer = data;
+    },
   },
   actions: {
     getAllData({ commit }) {
       axios
         .get('https://api.npoint.io/00261b488b3d021ec333')
         .then((response) => {
-          const dataFiltered = Object.values(response.data).filter((item) => {
-            return item.attr.ct12.value[0] === 'legendary-motorsport';
-          });
-          commit('SET_DATA', dataFiltered);
+          // const dataFiltered = Object.values(response.data).filter((item) => {
+          //   return item.attr.ct12.value[0] === 'legendary-motorsport';
+          // });
+          commit('SET_DATA', response.data);
           commit('SET_LOADED', true);
         })
         .catch((err) => {
@@ -45,6 +49,7 @@ export default new Vuex.Store({
         const response = state.data.filter((car) => {
           return car.id === id;
         });
+        this.dispatch('filterByManufacturer', response[0].attr.ct2.value);
         commit('SET_CARDETAILS', response);
       } else {
         console.error('Erro ao carregar detalhes do carro');
@@ -68,13 +73,16 @@ export default new Vuex.Store({
         console.error('Error while sorting data');
       }
     },
-    // filterByManufacturer({ state, commit }, manufacturer) {
-    //   if (state.loaded) {
-    //     const response = state.data.filter((car) => {
-    //       return car.attr.ct2.value === manufacturer;
-    //     });
-    //   }
-    // },
+    filterByManufacturer({ state, commit }, manufacturer) {
+      if (state.loaded) {
+        const response = state.data.filter((car) => {
+          const { value } = car.attr.ct2;
+          return value[0] === manufacturer[0];
+        });
+        console.log(response);
+        commit('SET_CARSBYMANUFACTURER', response);
+      }
+    },
   },
   modules: {},
   getters: {
@@ -83,6 +91,9 @@ export default new Vuex.Store({
     },
     getCarDetails: (state) => {
       return state.carDetails;
+    },
+    getCarsByManufacturer: (state) => {
+      return state.carsByManufacturer;
     },
   },
 });
