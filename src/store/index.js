@@ -11,6 +11,7 @@ export default new Vuex.Store({
     carDetails: null,
     orderDirection: null,
     carsByManufacturer: {},
+    filteredCars: {},
   },
   mutations: {
     SET_DATA(state, data) {
@@ -27,6 +28,9 @@ export default new Vuex.Store({
     },
     SET_CARSBYMANUFACTURER(state, data) {
       state.carsByManufacturer = data;
+    },
+    SET_FILTEREDCARS(state, data) {
+      state.filteredCars = data;
     },
   },
   actions: {
