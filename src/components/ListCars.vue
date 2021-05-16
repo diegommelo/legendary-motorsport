@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-list-cars border-red-700 text-right">
+    <div class="bg-list-cars text-right">
       <button @click="orderByPrice" class="bg-gradient-to-b from-red-700 via-red-800 to-red-900 rounded text-white p-2 mr-4 mt-4">
         Order by price 
         <span class="ml-4 text-bold" v-if="orderDirection === null"> ⬍</span>

@@ -12,6 +12,7 @@ export default new Vuex.Store({
     orderDirection: null,
     carsByManufacturer: {},
     filteredCars: {},
+    carSearch: '',
   },
   mutations: {
     SET_DATA(state, data) {
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     SET_FILTEREDCARS(state, data) {
       state.filteredCars = data;
     },
+    SET_CARSEARCH(state, search) {
+      state.carSearch = search;
+    },
   },
   actions: {
     getAllData({ commit }) {
@@ -42,6 +46,7 @@ export default new Vuex.Store({
           //   return item.attr.ct12.value[0] === 'legendary-motorsport';
           // });
           commit('SET_DATA', response.data);
+          commit('SET_FILTEREDCARS', response.data);
           commit('SET_LOADED', true);
         })
         .catch((err) => {
@@ -64,15 +69,15 @@ export default new Vuex.Store({
         let dataOrdered = {};
         commit('SET_ORDERDIRECTION', direction);
         if (state.orderDirection) {
-          dataOrdered = state.data.sort(
+          dataOrdered = state.filteredCars.sort(
             (a, b) => a.attr.ct13.value - b.attr.ct13.value
           );
         } else {
-          dataOrdered = state.data.sort(
+          dataOrdered = state.filteredCars.sort(
             (a, b) => b.attr.ct13.value - a.attr.ct13.value
           );
         }
-        commit('SET_DATA', dataOrdered);
+        commit('SET_FILTEREDCARS', dataOrdered);
       } else {
         console.error('Error while sorting data');
       }
@@ -83,8 +88,16 @@ export default new Vuex.Store({
           const { value } = car.attr.ct2;
           return value[0] === manufacturer[0];
         });
-        console.log(response);
         commit('SET_CARSBYMANUFACTURER', response);
+      }
+    },
+    searchByName({ state, commit }, carName) {
+      if (state.loaded) {
+        const response = state.data.filter((car) =>
+          car.name.toLowerCase().includes(carName.toLowerCase())
+        );
+        commit('SET_CARSEARCH', carName);
+        commit('SET_FILTEREDCARS', response);
       }
     },
   },
@@ -98,6 +111,12 @@ export default new Vuex.Store({
     },
     getCarsByManufacturer: (state) => {
       return state.carsByManufacturer;
+    },
+    getFilteredCars: (state) => {
+      return state.filteredCars;
+    },
+    getSearchedCar: (state) => {
+      state.carSearch;
     },
   },
 });
