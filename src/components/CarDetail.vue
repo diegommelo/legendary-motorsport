@@ -5,10 +5,10 @@
         <div class="w-20 mt-2 sm:ml-2">
           <slot name="manufacturer-logo"></slot>
         </div>
-        <div class="text-left w-10/12 sm:pl-4 flex self-center">
+        <div class="text-left w-10/12 sm:pl-4 flex self-center text-lg sm:text-2xl">
           <slot name="car-name"></slot>
         </div>
-        <div class="sm:pt-6 sm:pr-2 pt-3">
+        <div class="sm:pt-6 sm:pr-2 pt-2 text-lg sm:text-2xl">
           $<slot name="car-price"></slot>
         </div>
       </div>
@@ -25,7 +25,7 @@
       <div class="sm:grid sm:grid-cols-4 mt-6">
         <div class="col-span-2">
           <p class="mb-4 text-xl uppercase pl-2">Colors available</p>
-          <div class="flex flex-row flex-wrap sm:w-8/12 mb-4 justify-between">
+          <div class="flex flex-row flex-wrap w-8/12 sm:w-8/12 mb-4 sm:justify-between">
             <slot name="car-colors"></slot>
           </div>
         </div>

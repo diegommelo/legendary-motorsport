@@ -44,6 +44,9 @@ body {
 .bg-list-cars {
   background-color: rgb(34, 1, 1, 0.98);
 }
+.list-cars {
+  margin-top: -10px;
+}
 .header {
   background-image: url('./assets/header.png');
   background-size: cover;

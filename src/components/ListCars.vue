@@ -1,12 +1,5 @@
 <template>
-  <div>
-    <div class="bg-list-cars text-right">
-      <button @click="orderByPrice" class="bg-gradient-to-b from-red-700 via-red-800 to-red-900 rounded text-white p-2 mr-4 mt-4">
-        Order by price 
-        <span class="ml-4 text-bold" v-if="orderDirection === null"> ⬍</span>
-        <span class="ml-4" v-else-if="orderDirection === true">🠹</span>
-        <span class="ml-4" v-else>🠻</span>
-      </button>
+    <div class="bg-list-cars list-cars text-right">
       <div v-if="!loaded" class="flex flex-wrap mt-2">
         <SkeletonCard />
         <SkeletonCard />
@@ -28,12 +21,11 @@
             <img :src="`https://gtabase.com/images/gta-5/manufacturers/${car.attr.ct2.value[0]}.png`" />
           </template>
           <template v-slot:car-price>
-            $ {{car.attr.ct13.formatted_value}}
+            ${{car.attr.ct13.formatted_value}}
           </template>
         </Card>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

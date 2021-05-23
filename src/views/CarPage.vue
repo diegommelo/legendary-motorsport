@@ -8,7 +8,8 @@
             <img :src="`https://gtabase.com/images/gta-5/manufacturers/${getCarDetails[0].attr.ct2.value[0]}.png`" class="w-10 sm:w-20" :alt="getCarDetails[0].attr.ct2.value" />
         </template>
         <template v-slot:car-description>
-          {{getCarDetails[0].description}}
+          <p v-if="getCarDetails[0].description">{{getCarDetails[0].description}} </p>
+          <p v-else>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         </template>
         <template v-slot:car-photos>
           <img :src="`https://gtabase.com/${getCarDetails[0].thumbnail}`" :alt="`${getCarDetails[0].name}`" />
@@ -30,6 +31,10 @@
           <StatsBar stats="handling" :value="getCarDetails[0].attr.ct9.formatted_value" />
         </template>
       </CarDetail>
+      <h4 class="bg-list-cars text-2xl text-white p-4">
+        More from 
+        <span class="uppercase">{{getCarDetails[0].attr.ct2.value[0]}}</span>
+        </h4>
       <ListCars :getData="getCarsByManufacturer" />
     </div>
   </div>
