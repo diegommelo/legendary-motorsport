@@ -77,6 +77,9 @@ export default {
       console.log('Erro ao carregar dados do veículo')
     }
   },
+  updated() {
+    window.scrollTo(0,0);
+  },
   watch: {
     $route(to) {
       this.carId = to.params.id;
