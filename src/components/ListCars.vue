@@ -6,6 +6,9 @@
         <SkeletonCard class="sm:block hidden"/>  
       </div>
       <div class="flex flex-wrap mt-2">
+        <p class="text-white text-2xl p-4" v-if="getData.length==0">
+          Car not found
+        </p>
         <Card v-for="car in getData" :key="car.id">
           <template v-slot:car-name>
             <router-link :to="{name:'CarPage', params: {id:car.id}}">

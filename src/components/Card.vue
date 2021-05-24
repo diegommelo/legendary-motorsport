@@ -13,12 +13,12 @@
       </div>
       <div class="card-footer bg-black flex sm:flex-nowrap flex-wrap sm:justify-between">
         <div class="car-name flex sm:justify-start justify-center items-center m-2 truncate">
-          <p class="sm:text-left text-white ">
+          <p class="sm:text-left text-white text-base">
             <slot name="car-name"></slot>
           </p>
         </div>
         <div class="car-price sm:h-10 h-8 p-2 flex items-center justify-center bg-gradient-to-b from-red-700 via-red-800 to-red-900">
-          <p class="sm:text-right text-gray-200 truncate">
+          <p class="sm:text-right text-gray-200 truncate text-base">
             <slot name="car-price"></slot>
           </p>
         </div>
