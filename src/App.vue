@@ -21,7 +21,6 @@
             <li><a href="#">Site Map</a></li>
             <li><a href="#">Careers</a></li>
             <li><a href="#">Fraud Awareness</a></li>
-            <li><a href="https://www.rockstargames.com/V/" target="_blank">Visit Los Santos</a></li>
           </ul>
           <p class="pt-2">Designed by <a href="https://twitter.com/dieguitoo">@dieguitoo</a></p>
         </div>
@@ -60,6 +59,7 @@
             <li><a href="#">Southern San Andreas Super Autos</a></li>
             <li><a href="#">Elitás Travel</a></li>
             <li><a href="#">DockTease</a></li>
+            <li><a href="https://www.rockstargames.com/V/" target="_blank">Visit Los Santos</a></li>
           </ul>
         </div>        
       </div>
